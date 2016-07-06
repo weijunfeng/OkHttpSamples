@@ -1,0 +1,14 @@
+http://publicobject.com/helloworld.txt
+GET
+0
+HTTP/1.0 301 Moved Permanently
+9
+Server: nginx/1.4.6 (Ubuntu)
+Date: Tue, 05 Jul 2016 11:02:25 GMT
+Content-Type: text/html
+Content-Length: 193
+Location: https://publicobject.com/helloworld.txt
+X-Cache: MISS from HexinFirewall
+Connection: keep-alive
+OkHttp-Sent-Millis: 1467717165374
+OkHttp-Received-Millis: 1467717165718
