@@ -34,7 +34,7 @@ public final class Progress {
   private static final Logger logger = Logger.getLogger(LoggingInterceptors.class.getName());
   public void run() throws Exception {
     Request request = new Request.Builder()
-        .url("https://publicobject.com/helloworld.txt")
+        .url("http://publicobject.com/helloworld.txt")
         .build();
 
     final ProgressListener progressListener = new ProgressListener() {

@@ -15,18 +15,31 @@
  */
 package okhttp3.recipes;
 
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import java.io.IOException;
+import java.util.logging.Logger;
+
 public final class LoggingInterceptors {
   private static final Logger logger = Logger.getLogger(LoggingInterceptors.class.getName());
   private final OkHttpClient client = new OkHttpClient.Builder()
-      .addInterceptor(new LoggingInterceptor())
+          //应用拦截器
+//          * 不必要担心响应和重定向之间的中间响应。
+//            *通常只调用一次，即使HTTP响应是通过缓存提供的。
+//            *遵从应用层的最初目的。与OkHttp的注入头部无关，如If-None-Match。
+//            *允许短路而且不调用Chain.proceed()。
+//            *允许重试和多次调用Chain.proceed()。
+
+            .addInterceptor(new LoggingInterceptor())
+          //    网络拦截器
+//        *允许像重定向和重试一样操作中间响应。
+//            *网络发生短路时不调用缓存响应。
+//            *在数据被传递到网络时观察数据。
+//            *有权获得装载请求的连接。
+          
 //      .addNetworkInterceptor(new LoggingInterceptor())
       .build();
 
