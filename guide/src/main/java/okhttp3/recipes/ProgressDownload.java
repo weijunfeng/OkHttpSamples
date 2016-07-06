@@ -30,7 +30,10 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Source;
 
-public final class Progress {
+/**
+ * 下载进度
+ */
+public final class ProgressDownload {
   private static final Logger logger = Logger.getLogger(LoggingInterceptors.class.getName());
   public void run() throws Exception {
     Request request = new Request.Builder()
@@ -57,6 +60,8 @@ public final class Progress {
 //        })
         .addInterceptor(new Interceptor() {
           @Override public Response intercept(Chain chain) throws IOException {
+
+
             long t1 = System.nanoTime();
             Request request = chain.request();
             logger.info(String.format("Sending request %s on %s%n%s",
@@ -67,6 +72,8 @@ public final class Progress {
 //      TimeUnit.NANOSECONDS.toMillis(t2 - t1)
             logger.info(String.format("Received response for %s in %.1fms%n%s",
                     response.request().url(), (t2 - t1) / 1.0e6d, response.headers()));
+
+
 
             Response originalResponse = chain.proceed(chain.request());
             return originalResponse.newBuilder()
@@ -84,7 +91,7 @@ public final class Progress {
   }
 
   public static void main(String... args) throws Exception {
-    new Progress().run();
+    new ProgressDownload().run();
   }
 
   private static class ProgressResponseBody extends ResponseBody {

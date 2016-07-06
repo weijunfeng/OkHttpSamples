@@ -39,7 +39,7 @@ public final class LoggingInterceptors {
 //            *网络发生短路时不调用缓存响应。
 //            *在数据被传递到网络时观察数据。
 //            *有权获得装载请求的连接。
-          
+
 //      .addNetworkInterceptor(new LoggingInterceptor())
       .build();
 
