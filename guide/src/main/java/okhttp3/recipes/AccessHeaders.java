@@ -18,6 +18,7 @@ package okhttp3.recipes;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.internal.http.HttpDate;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -54,6 +55,10 @@ public final class AccessHeaders {
       SimpleDateFormat sdf = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", Locale.US);
       Date date = sdf.parse(stringDate);
       System.out.println("date " + date.toString());
+
+      System.out.println("Date5: " + HttpDate.parse(response.header("Date")));
+      System.out.println("Date4: " + HttpDate.format(new Date(1467869347000L)));
+      System.out.println("Date3: " + response.headers().getDate("Date").getTime());
 
       System.out.println("Date: " + response.header("Date"));
       System.out.println("Date1: " + response.header("Expires"));
