@@ -33,7 +33,8 @@ public final class LoggingInterceptors {
 //            *允许短路而且不调用Chain.proceed()。
 //            *允许重试和多次调用Chain.proceed()。
 
-            .addInterceptor(new LoggingInterceptor())
+//            .addInterceptor(new LoggingInterceptor())
+            .addInterceptor(new HttpLoggingInterceptor())
           //    网络拦截器
 //        *允许像重定向和重试一样操作中间响应。
 //            *网络发生短路时不调用缓存响应。
